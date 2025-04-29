@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graf"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/girisFragment"
+        android:name="com.laracihan.fizyocep.girisFragment"
+        android:label="fragment_giris"
+        tools:layout="@layout/fragment_giris" />
+    <fragment
+        android:id="@+id/kaydolFragment"
+        android:name="com.laracihan.fizyocep.kaydolFragment"
+        android:label="fragment_kaydol"
+        tools:layout="@layout/fragment_kaydol" />
+    <fragment
+        android:id="@+id/misafirFragment"
+        android:name="com.laracihan.fizyocep.misafirFragment"
+        android:label="fragment_misafir"
+        tools:layout="@layout/fragment_misafir" />
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.laracihan.fizyocep.anasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/action_anasayfaFragment_to_kaydolFragment"
+            app:destination="@id/kaydolFragment" />
+        <action
+            android:id="@+id/action_anasayfaFragment_to_girisFragment"
+            app:destination="@id/girisFragment" />
+        <action
+            android:id="@+id/action_anasayfaFragment_to_misafirFragment"
+            app:destination="@id/misafirFragment" />
+    </fragment>
+
+</navigation>

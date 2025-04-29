@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/arkaplan">
+
+    <EditText
+        android:id="@+id/mailEditText2"
+        android:layout_width="251dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:background="#ADCAC8"
+        android:ems="10"
+        android:hint="e-mail giriniz"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isimEditText" />
+
+    <EditText
+        android:id="@+id/tekrarParolaEditText"
+        android:layout_width="251dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:background="#ACC9C7"
+        android:ems="10"
+        android:hint="tekrar parola giriniz"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yeniParolaEditText" />
+
+    <EditText
+        android:id="@+id/isimEditText"
+        android:layout_width="251dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="120dp"
+        android:background="#ADCAC8"
+        android:backgroundTint="#A9C6C4"
+        android:ems="10"
+        android:hint="kullanıcı adı giriniz"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/yeniParolaEditText"
+        android:layout_width="251dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:background="#ADCAC8"
+        android:backgroundTint="#ADCAC8"
+        android:ems="10"
+        android:hint="parola giriniz"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mailEditText2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
