@@ -73,5 +73,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailEditText2" />
 
+    <EditText
+        android:id="@+id/boyText"
+        android:layout_width="102dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
+        android:background="#ACC9C7"
+        android:ems="10"
+        android:hint="boy(cm)"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/kiloText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tekrarParolaEditText" />
+
+    <EditText
+        android:id="@+id/kiloText"
+        android:layout_width="107dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="80dp"
+        android:background="#ACC9C7"
+        android:ems="10"
+        android:hint="kilo"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tekrarParolaEditText" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
