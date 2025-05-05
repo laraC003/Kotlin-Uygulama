@@ -14,7 +14,11 @@
         android:id="@+id/kaydolFragment"
         android:name="com.laracihan.fizyocep.kaydolFragment"
         android:label="fragment_kaydol"
-        tools:layout="@layout/fragment_kaydol" />
+        tools:layout="@layout/fragment_kaydol" >
+        <action
+            android:id="@+id/action_kaydolFragment_to_codeVerificationFragment"
+            app:destination="@id/codeVerificationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/misafirFragment"
         android:name="com.laracihan.fizyocep.misafirFragment"
@@ -35,5 +39,10 @@
             android:id="@+id/action_anasayfaFragment_to_misafirFragment"
             app:destination="@id/misafirFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/codeVerificationFragment"
+        android:name="com.laracihan.fizyocep.codeVerificationFragment"
+        android:label="fragment_code_verification"
+        tools:layout="@layout/fragment_code_verification" />
 
 </navigation>

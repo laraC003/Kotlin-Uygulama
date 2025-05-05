@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "705273444146",
+    "project_id": "fizyocep",
+    "storage_bucket": "fizyocep.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705273444146:android:396fdeee2035c1a816492b",
+        "android_client_info": {
+          "package_name": "com.laracihan.fizyocep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnXUNsUuq2kXQ-reaMORdXu1QO_yYw_1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
