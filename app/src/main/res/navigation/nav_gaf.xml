@@ -18,7 +18,11 @@
         android:id="@+id/kaydolFragment"
         android:name="com.laracihan.fizyocep.kaydolFragment"
         android:label="fragment_kaydol"
-        tools:layout="@layout/fragment_kaydol" />
+        tools:layout="@layout/fragment_kaydol" >
+        <action
+            android:id="@+id/action_kaydolFragment_to_codeVerificationFragment"
+            app:destination="@id/codeVerificationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/misafirFragment"
         android:name="com.laracihan.fizyocep.misafirFragment"
@@ -40,6 +44,7 @@
             app:destination="@id/misafirFragment" />
     </fragment>
     <fragment
+
         android:id="@+id/icerikFragment"
         android:name="com.laracihan.fizyocep.icerikFragment"
         android:label="fragment_icerik"
