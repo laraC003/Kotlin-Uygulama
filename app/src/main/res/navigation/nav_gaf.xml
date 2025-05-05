@@ -9,7 +9,11 @@
         android:id="@+id/girisFragment"
         android:name="com.laracihan.fizyocep.girisFragment"
         android:label="fragment_giris"
-        tools:layout="@layout/fragment_giris" />
+        tools:layout="@layout/fragment_giris" >
+        <action
+            android:id="@+id/action_girisFragment_to_icerikFragment"
+            app:destination="@id/icerikFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kaydolFragment"
         android:name="com.laracihan.fizyocep.kaydolFragment"
@@ -40,9 +44,10 @@
             app:destination="@id/misafirFragment" />
     </fragment>
     <fragment
-        android:id="@+id/codeVerificationFragment"
-        android:name="com.laracihan.fizyocep.codeVerificationFragment"
-        android:label="fragment_code_verification"
-        tools:layout="@layout/fragment_code_verification" />
+
+        android:id="@+id/icerikFragment"
+        android:name="com.laracihan.fizyocep.icerikFragment"
+        android:label="fragment_icerik"
+        tools:layout="@layout/fragment_icerik" />
 
 </navigation>
