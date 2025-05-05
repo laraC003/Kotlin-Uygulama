@@ -20,8 +20,8 @@
         android:label="fragment_kaydol"
         tools:layout="@layout/fragment_kaydol" >
         <action
-            android:id="@+id/action_kaydolFragment_to_codeVerificationFragment"
-            app:destination="@id/codeVerificationFragment" />
+            android:id="@+id/action_kaydolFragment_to_anasayfaFragment"
+            app:destination="@id/anasayfaFragment" />
     </fragment>
     <fragment
         android:id="@+id/misafirFragment"
