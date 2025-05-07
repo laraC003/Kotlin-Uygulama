@@ -8,23 +8,23 @@
     android:background="@drawable/arkaplan">
 
     <EditText
-        android:id="@+id/mailEditText2"
+        android:id="@+id/sifreEditText"
         android:layout_width="215dp"
         android:layout_height="59dp"
         android:layout_marginTop="32dp"
         android:background="#ADCAC8"
         android:ems="10"
         android:hint="parola giriniz"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textAlignment="center"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isimEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/mailEditText2" />
 
     <EditText
-        android:id="@+id/isimEditText"
+        android:id="@+id/mailEditText2"
         android:layout_width="215dp"
         android:layout_height="59dp"
         android:layout_marginTop="120dp"
@@ -44,9 +44,10 @@
         android:id="@+id/girisButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="128dp"
         android:text="Giris"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailEditText2" />
 

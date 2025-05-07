@@ -43,6 +43,8 @@ class kaydolFragment : Fragment() {
         binding.button2.setOnClickListener { KayitOl(it) }
     }
 
+
+
     fun KayitOl(view: View){
         val email = binding.mailEditText2.text.toString()
         val password = binding.yeniParolaEditText.text.toString()
