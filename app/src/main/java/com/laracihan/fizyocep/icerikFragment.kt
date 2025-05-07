@@ -48,17 +48,26 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = Egzersizadapter(egzersizListe)
 
-        binding.icerikRecyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        val adapter = Egzersizadapter(egzersizListe) { secilenEgzersiz ->
+            val bundle = Bundle().apply {
+                putString("egzersizTuru", secilenEgzersiz.egzersizTuru)
+                putInt("egzersizFoto", secilenEgzersiz.foto)
+            }
+            Navigation.findNavController(view).navigate(R.id.egzersizDetayFragment, bundle)
+        }
+
+        binding.icerikRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.icerikRecyclerView.adapter = adapter
-        binding.floatingActionButton.setOnClickListener{floatingButtonTiklandi(it)}
 
-        popup=PopupMenu(requireContext(),binding.floatingActionButton)
-        val inflater=popup.menuInflater
-        inflater.inflate(R.menu.my_menu,popup.menu)
+        binding.floatingActionButton.setOnClickListener { floatingButtonTiklandi(it) }
+
+        popup = PopupMenu(requireContext(), binding.floatingActionButton)
+        val inflater = popup.menuInflater
+        inflater.inflate(R.menu.my_menu, popup.menu)
         popup.setOnMenuItemClickListener(this)
     }
+
 
     fun floatingButtonTiklandi(view: View){
 
