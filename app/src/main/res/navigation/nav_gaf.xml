@@ -48,6 +48,13 @@
         android:id="@+id/icerikFragment"
         android:name="com.laracihan.fizyocep.icerikFragment"
         android:label="fragment_icerik"
-        tools:layout="@layout/fragment_icerik" />
+        tools:layout="@layout/fragment_icerik" >
+        <action
+            android:id="@+id/action_icerikFragment_to_girisFragment"
+            app:destination="@id/girisFragment" />
+        <argument
+            android:name="kullanici"
+            app:argType="boolean" />
+    </fragment>
 
 </navigation>
