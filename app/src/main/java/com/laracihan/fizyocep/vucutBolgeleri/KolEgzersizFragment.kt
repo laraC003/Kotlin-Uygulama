@@ -1,16 +1,18 @@
-package com.laracihan.fizyocep
+package com.laracihan.fizyocep.vucutBolgeleri
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.laracihan.fizyocep.R
 
 
-class elEgzersizFragment : Fragment() {
+class KolEgzersizFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
     }
 
@@ -19,7 +21,7 @@ class elEgzersizFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_el_egzersiz, container, false)
+        return inflater.inflate(R.layout.fragment_kol_egzersiz, container, false)
     }
 
 
