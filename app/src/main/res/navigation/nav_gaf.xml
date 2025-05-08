@@ -6,12 +6,6 @@
     app:startDestination="@id/anasayfaFragment">
 
     <fragment
-        android:id="@+id/egzersizDetayFragment"
-        android:name="com.laracihan.fizyocep.EgzersizDetayFragment"
-        android:label="Egzersiz Detay"
-        tools:layout="@layout/fragment_egzersiz_detay" />
-
-    <fragment
         android:id="@+id/girisFragment"
         android:name="com.laracihan.fizyocep.girisFragment"
         android:label="fragment_giris"
@@ -61,6 +55,22 @@
         <argument
             android:name="kullanici"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_icerikFragment_to_basEgzersizFragment"
+            app:destination="@id/basEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_boyunEgzersizFragment"
+            app:destination="@id/boyunEgzersizFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/basEgzersizFragment"
+        android:name="com.laracihan.fizyocep.basEgzersizFragment"
+        android:label="fragment_bas_egzersiz"
+        tools:layout="@layout/fragment_bas_egzersiz" />
+    <fragment
+        android:id="@+id/boyunEgzersizFragment"
+        android:name="com.laracihan.fizyocep.boyunEgzersizFragment"
+        android:label="fragment_boyun_egzersiz"
+        tools:layout="@layout/fragment_boyun_egzersiz" />
 
 </navigation>
