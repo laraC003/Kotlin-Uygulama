@@ -61,6 +61,24 @@
         <action
             android:id="@+id/action_icerikFragment_to_boyunEgzersizFragment"
             app:destination="@id/boyunEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_sirtEgzersizFragment"
+            app:destination="@id/sirtEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_belEgzersizFragment"
+            app:destination="@id/belEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_bacakEgzersizFragment"
+            app:destination="@id/bacakEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_kolEgzersizFragment"
+            app:destination="@id/kolEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_elEgzersizFragment"
+            app:destination="@id/elEgzersizFragment" />
+        <action
+            android:id="@+id/action_icerikFragment_to_ayakEgzersizFragment"
+            app:destination="@id/ayakEgzersizFragment" />
     </fragment>
     <fragment
         android:id="@+id/basEgzersizFragment"
@@ -72,5 +90,35 @@
         android:name="com.laracihan.fizyocep.boyunEgzersizFragment"
         android:label="fragment_boyun_egzersiz"
         tools:layout="@layout/fragment_boyun_egzersiz" />
+    <fragment
+        android:id="@+id/sirtEgzersizFragment"
+        android:name="com.laracihan.fizyocep.sirtEgzersizFragment"
+        android:label="fragment_sirt_egzersiz"
+        tools:layout="@layout/fragment_sirt_egzersiz" />
+    <fragment
+        android:id="@+id/belEgzersizFragment"
+        android:name="com.laracihan.fizyocep.belEgzersizFragment"
+        android:label="fragment_bel_egzersiz"
+        tools:layout="@layout/fragment_bel_egzersiz" />
+    <fragment
+        android:id="@+id/bacakEgzersizFragment"
+        android:name="com.laracihan.fizyocep.bacakEgzersizFragment"
+        android:label="fragment_bacak_egzersiz"
+        tools:layout="@layout/fragment_bacak_egzersiz" />
+    <fragment
+        android:id="@+id/kolEgzersizFragment"
+        android:name="com.laracihan.fizyocep.kolEgzersizFragment"
+        android:label="fragment_kol_egzersiz"
+        tools:layout="@layout/fragment_kol_egzersiz" />
+    <fragment
+        android:id="@+id/elEgzersizFragment"
+        android:name="com.laracihan.fizyocep.elEgzersizFragment"
+        android:label="fragment_el_egzersiz"
+        tools:layout="@layout/fragment_el_egzersiz" />
+    <fragment
+        android:id="@+id/ayakEgzersizFragment"
+        android:name="com.laracihan.fizyocep.ayakEgzersizFragment"
+        android:label="fragment_ayak_egzersiz"
+        tools:layout="@layout/fragment_ayak_egzersiz" />
 
 </navigation>
