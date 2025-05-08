@@ -15,6 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.laracihan.fizyocep.databinding.FragmentIcerikBinding
 import com.laracihan.fizyocep.databinding.FragmentMisafirBinding
+import kotlin.math.E
 
 class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
 
@@ -28,12 +29,16 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
         super.onCreate(savedInstanceState)
         auth=Firebase.auth
 
-        val e1 = Egzersiz(R.drawable.bas,"Baş egzersizi")
-        val e2 =  Egzersiz(R.drawable.boyun,"Boyun egzersizi")
-        val e3 = Egzersiz(R.drawable.bas,"Baş egzersizi")
-        val e4 =  Egzersiz(R.drawable.boyun,"Boyun egzersizi")
+        val e1 = Egzersiz(R.drawable.bas,"Baş Egzersizi")
+        val e2 = Egzersiz(R.drawable.boyun,"Boyun Egzersizi")
+        val e3 = Egzersiz(R.drawable.sirt,"Sırt Egzersizi")
+        val e4 = Egzersiz(R.drawable.bel,"Bel Egzersizi")
+        val e5 = Egzersiz(R.drawable.kol,"Kol Egzersizi")
+        val e6 = Egzersiz(R.drawable.el,"El Egzersizi")
+        val e7 = Egzersiz(R.drawable.bacak,"Bacak Egzersizi")
+        val e8 = Egzersiz(R.drawable.ayak,"Ayak Egzersizi")
 
-        egzersizListe = arrayListOf(e1,e2,e3,e4)
+        egzersizListe = arrayListOf(e1,e2,e3,e4,e5,e6,e7,e8)
 
     }
 
@@ -52,16 +57,43 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
 
         val adapter = Egzersizadapter(egzersizListe) { secilenEgzersiz ->
             when (secilenEgzersiz.egzersizTuru) {
-                "Baş egzersizi" -> {
+                "Baş Egzersizi" -> {
                     val action = icerikFragmentDirections.actionIcerikFragmentToBasEgzersizFragment()
                     Navigation.findNavController(view).navigate(action)
                 }
-                "Boyun egzersizi" -> {
+                "Boyun Egzersizi" -> {
                     val action = icerikFragmentDirections.actionIcerikFragmentToBoyunEgzersizFragment()
+                    Navigation.findNavController(view).navigate(action)
+                }
+                "Sırt Egzersizi"->{
+                    val action = icerikFragmentDirections.actionIcerikFragmentToSirtEgzersizFragment()
+                    Navigation.findNavController(view).navigate(action)
+
+                }
+                "Bel Egzersizi"->{
+                    val action = icerikFragmentDirections.actionIcerikFragmentToBelEgzersizFragment()
+                    Navigation.findNavController(view).navigate(action)
+                }
+                "kol Egzersizi"->{
+                    val action = icerikFragmentDirections.actionIcerikFragmentToKolEgzersizFragment()
+                    Navigation.findNavController(view).navigate(action)
+                }
+                "El Egzersizi"->{
+                    val action = icerikFragmentDirections.actionIcerikFragmentToElEgzersizFragment()
+                    Navigation.findNavController(view).navigate(action)
+
+                }
+                "Bacak Egzersizi"->{
+                    val action = icerikFragmentDirections.actionIcerikFragmentToBacakEgzersizFragment()
+                    Navigation.findNavController(view).navigate(action)
+                }
+                "Ayak Egzersizi"->{
+                    val action = icerikFragmentDirections.actionIcerikFragmentToAyakEgzersizFragment()
                     Navigation.findNavController(view).navigate(action)
                 }
                 else -> {
                     Toast.makeText(requireContext(), "Tanımsız egzersiz", Toast.LENGTH_SHORT).show()
+
                 }
             }
         }
