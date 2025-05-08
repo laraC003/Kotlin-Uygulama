@@ -82,42 +82,42 @@
     </fragment>
     <fragment
         android:id="@+id/basEgzersizFragment"
-        android:name="com.laracihan.fizyocep.basEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.BasEgzersizFragment"
         android:label="fragment_bas_egzersiz"
         tools:layout="@layout/fragment_bas_egzersiz" />
     <fragment
         android:id="@+id/boyunEgzersizFragment"
-        android:name="com.laracihan.fizyocep.boyunEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.BoyunEgzersizFragment"
         android:label="fragment_boyun_egzersiz"
         tools:layout="@layout/fragment_boyun_egzersiz" />
     <fragment
         android:id="@+id/sirtEgzersizFragment"
-        android:name="com.laracihan.fizyocep.sirtEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.SirtEgzersizFragment"
         android:label="fragment_sirt_egzersiz"
         tools:layout="@layout/fragment_sirt_egzersiz" />
     <fragment
         android:id="@+id/belEgzersizFragment"
-        android:name="com.laracihan.fizyocep.belEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.BelEgzersizFragment"
         android:label="fragment_bel_egzersiz"
         tools:layout="@layout/fragment_bel_egzersiz" />
     <fragment
         android:id="@+id/bacakEgzersizFragment"
-        android:name="com.laracihan.fizyocep.bacakEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.BacakEgzersizFragment"
         android:label="fragment_bacak_egzersiz"
         tools:layout="@layout/fragment_bacak_egzersiz" />
     <fragment
         android:id="@+id/kolEgzersizFragment"
-        android:name="com.laracihan.fizyocep.kolEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.KolEgzersizFragment"
         android:label="fragment_kol_egzersiz"
         tools:layout="@layout/fragment_kol_egzersiz" />
     <fragment
         android:id="@+id/elEgzersizFragment"
-        android:name="com.laracihan.fizyocep.elEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.ElEgzersizFragment"
         android:label="fragment_el_egzersiz"
         tools:layout="@layout/fragment_el_egzersiz" />
     <fragment
         android:id="@+id/ayakEgzersizFragment"
-        android:name="com.laracihan.fizyocep.ayakEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.AyakEgzersizFragment"
         android:label="fragment_ayak_egzersiz"
         tools:layout="@layout/fragment_ayak_egzersiz" />
 
