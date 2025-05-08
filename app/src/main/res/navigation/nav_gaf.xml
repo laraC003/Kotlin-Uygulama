@@ -6,6 +6,12 @@
     app:startDestination="@id/anasayfaFragment">
 
     <fragment
+        android:id="@+id/egzersizDetayFragment"
+        android:name="com.laracihan.fizyocep.EgzersizDetayFragment"
+        android:label="Egzersiz Detay"
+        tools:layout="@layout/fragment_egzersiz_detay" />
+
+    <fragment
         android:id="@+id/girisFragment"
         android:name="com.laracihan.fizyocep.girisFragment"
         android:label="fragment_giris"

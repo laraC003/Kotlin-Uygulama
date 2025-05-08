@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.laracihan.fizyocep.databinding.EgzersizBinding
-import com.laracihan.fizyocep.databinding.FragmentMisafirBinding
 
-class Egzersizadapter(
-    private val egzersizListe: ArrayList<Egzersiz>,
-    private val onItemClick: (Egzersiz) -> Unit
-) : RecyclerView.Adapter<Egzersizadapter.EgzersizHolder>() {
+class EgzersizAdapterMisafir(
+    private val egzersizListe: ArrayList<Egzersiz>
+) : RecyclerView.Adapter<EgzersizAdapterMisafir.EgzersizHolder>() {
 
     class EgzersizHolder(val binding: EgzersizBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -18,15 +16,13 @@ class Egzersizadapter(
         return EgzersizHolder(binding)
     }
 
-    override fun getItemCount(): Int = egzersizListe.size
-
     override fun onBindViewHolder(holder: EgzersizHolder, position: Int) {
         val egzersiz = egzersizListe[position]
         holder.binding.egzersizFoto.setImageResource(egzersiz.foto)
         holder.binding.egzersizTuru.text = egzersiz.egzersizTuru
+    }
 
-        holder.itemView.setOnClickListener {
-            onItemClick(egzersiz)
-        }
+    override fun getItemCount(): Int {
+        return egzersizListe.size
     }
 }
