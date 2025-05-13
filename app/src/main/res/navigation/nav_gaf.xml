@@ -5,6 +5,7 @@
     android:id="@+id/nav_graf"
     app:startDestination="@id/anasayfaFragment">
 
+
     <fragment
         android:id="@+id/girisFragment"
         android:name="com.laracihan.fizyocep.girisFragment"
@@ -87,9 +88,10 @@
         tools:layout="@layout/fragment_bas_egzersiz" />
     <fragment
         android:id="@+id/boyunEgzersizFragment"
-        android:name="com.laracihan.fizyocep.boyunEgzersizFragment"
+        android:name="com.laracihan.fizyocep.BoyunEgzersizFragment"
         android:label="fragment_boyun_egzersiz"
         tools:layout="@layout/fragment_boyun_egzersiz" />
+
     <fragment
         android:id="@+id/sirtEgzersizFragment"
         android:name="com.laracihan.fizyocep.sirtEgzersizFragment"
