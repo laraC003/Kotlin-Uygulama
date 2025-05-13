@@ -1,25 +1,39 @@
 package com.laracihan.fizyocep.vucutBolgeleri
 
+import com.laracihan.fizyocep.R
+import android.net.Uri
 import android.os.Bundle
+import android.widget.MediaController
+import android.widget.VideoView
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.laracihan.fizyocep.R
 
 class BoyunEgzersizFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_boyun_egzersiz, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val videoView = view.findViewById<VideoView>(R.id.videoView)
+
+        // raw klasöründeki video URI'si
+        val videoUri = Uri.parse("android.resource://${requireContext().packageName}/${R.raw.boyun_egzersizi}")
+        videoView.setVideoURI(videoUri)
+
+        // Medya kontrol çubuğu
+        val mediaController = MediaController(requireContext())
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+
+        // Videoyu oynat
+        videoView.start()
+    }
 }

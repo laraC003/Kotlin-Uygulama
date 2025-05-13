@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.laracihan.fizyocep.databinding.EgzersizBinding
+import com.laracihan.fizyocep.databinding.FragmentMisafirBinding
 
 class Egzersizadapter(
     private val egzersizListe: ArrayList<Egzersiz>,
