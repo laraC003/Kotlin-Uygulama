@@ -20,60 +20,193 @@
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         android:visibility="gone" />
 
-    <!-- Normal içerik -->
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/btnVideo1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Video 1"
-            android:layout_marginTop="8dp" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnVideo2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Video 2"
-            android:layout_marginTop="8dp" />
+            <!-- Video 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
-        <Button
-            android:id="@+id/btnVideo3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Video 3"
-            android:layout_marginTop="8dp" />
+                <Button
+                    android:id="@+id/btnVideo1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 1" />
 
-        <Button
-            android:id="@+id/btnVideo4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Video 4"
-            android:layout_marginTop="8dp" />
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
 
-        <Button
-            android:id="@+id/btnVideo5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Video 5"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/statusText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btnVideo6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Video 6"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>
-</ScrollView>
+            <!-- Video 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVideo2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 2" />
+
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Video 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVideo3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 3" />
+
+                <CheckBox
+                    android:id="@+id/checkbox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Video 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVideo4"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 4" />
+
+                <CheckBox
+                    android:id="@+id/checkbox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Video 5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVideo5"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 5" />
+
+                <CheckBox
+                    android:id="@+id/checkbox5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Video 6 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVideo6"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 6" />
+
+                <CheckBox
+                    android:id="@+id/checkbox6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
     </FrameLayout>
