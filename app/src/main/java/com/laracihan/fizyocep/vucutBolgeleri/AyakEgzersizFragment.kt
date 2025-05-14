@@ -44,7 +44,8 @@ class AyakEgzersizFragment : Fragment() {
             R.id.btnVideo3 to R.raw.ayak_egzersizi3,
             R.id.btnVideo4 to R.raw.ayak_egzersizi4,
             R.id.btnVideo5 to R.raw.ayak_egzersizi5,
-            R.id.btnVideo6 to R.raw.ayak_egzersizi6
+            R.id.btnVideo6 to R.raw.ayak_egzersizi6,
+            R.id.btnVideo7 to R.raw.ayak_egzersizi7
         )
 
         for ((buttonId, videoRes) in buttons) {
