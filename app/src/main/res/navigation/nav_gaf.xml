@@ -56,8 +56,8 @@
             android:name="kullanici"
             app:argType="boolean" />
         <action
-            android:id="@+id/action_icerikFragment_to_basEgzersizFragment"
-            app:destination="@id/basEgzersizFragment" />
+            android:id="@+id/actio_icerikFragment_to_omuzEgzersizFragment"
+            app:destination="@id/omuzEgzersizFragment" />
         <action
             android:id="@+id/action_icerikFragment_to_boyunEgzersizFragment"
             app:destination="@id/boyunEgzersizFragment" />
@@ -81,10 +81,10 @@
             app:destination="@id/ayakEgzersizFragment" />
     </fragment>
     <fragment
-        android:id="@+id/basEgzersizFragment"
-        android:name="com.laracihan.fizyocep.vucutBolgeleri.BasEgzersizFragment"
-        android:label="fragment_bas_egzersiz"
-        tools:layout="@layout/fragment_bas_egzersiz" />
+        android:id="@+id/omuzEgzersizFragment"
+        android:name="com.laracihan.fizyocep.vucutBolgeleri.OmuzEgzersizFragment"
+        android:label="fragment_omuz_egzersiz"
+        tools:layout="@layout/fragment_omuz_egzersiz" />
     <fragment
         android:id="@+id/boyunEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BoyunEgzersizFragment"

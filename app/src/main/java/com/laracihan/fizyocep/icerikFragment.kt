@@ -29,7 +29,7 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
         super.onCreate(savedInstanceState)
         auth=Firebase.auth
 
-        val e1 = Egzersiz(R.drawable.bas,"Baş Egzersizi")
+        val e1 = Egzersiz(R.drawable.omuz,"Omuz Egzersizi")
         val e2 = Egzersiz(R.drawable.boyun,"Boyun Egzersizi")
         val e3 = Egzersiz(R.drawable.sirt,"Sırt Egzersizi")
         val e4 = Egzersiz(R.drawable.bel,"Bel Egzersizi")
@@ -57,8 +57,8 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
 
         val adapter = Egzersizadapter(egzersizListe) { secilenEgzersiz ->
             when (secilenEgzersiz.egzersizTuru) {
-                "Baş Egzersizi" -> {
-                    val action = icerikFragmentDirections.actionIcerikFragmentToBasEgzersizFragment()
+                "Omuz Egzersizi" -> {
+                    val action = icerikFragmentDirections.actioIcerikFragmentToOmuzEgzersizFragment()
                     Navigation.findNavController(view).navigate(action)
                 }
                 "Boyun Egzersizi" -> {
@@ -74,7 +74,7 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
                     val action = icerikFragmentDirections.actionIcerikFragmentToBelEgzersizFragment()
                     Navigation.findNavController(view).navigate(action)
                 }
-                "kol Egzersizi"->{
+                "Kol Egzersizi"->{
                     val action = icerikFragmentDirections.actionIcerikFragmentToKolEgzersizFragment()
                     Navigation.findNavController(view).navigate(action)
                 }
