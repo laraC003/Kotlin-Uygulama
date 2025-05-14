@@ -31,7 +31,7 @@ class BoyunEgzersizFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         videoView = view.findViewById(R.id.videoView)
-        exitButton = view.findViewById(R.id.btnExitFullscreen) // düzeltildi ✅
+        exitButton = view.findViewById(R.id.btnExitFullscreen)
         scrollView = view.findViewById(R.id.scrollView)
 
         mediaController = MediaController(requireContext())
