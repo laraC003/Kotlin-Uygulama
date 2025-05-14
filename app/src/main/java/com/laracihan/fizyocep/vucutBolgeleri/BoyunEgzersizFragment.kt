@@ -10,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.ScrollView
+import android.widget.TextView
 
 class BoyunEgzersizFragment : Fragment() {
 
@@ -52,6 +54,50 @@ class BoyunEgzersizFragment : Fragment() {
                 enterFullscreen()
                 playVideo(videoRes)
             }
+        }
+        videoView = view.findViewById(R.id.videoView)
+        exitButton = view.findViewById(R.id.btnExitFullscreen)
+        scrollView = view.findViewById(R.id.scrollView)
+
+        mediaController = MediaController(requireContext())
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+
+        // Butonlar ve CheckBox'lar arasında ilişkiyi kurma
+        val videoMappings = listOf(
+            Triple(R.id.btnVideo1, R.raw.boyun_egzersizi, Pair(R.id.checkbox1, R.id.statusText1)),
+            Triple(R.id.btnVideo2, R.raw.boyun_egzersizi2, Pair(R.id.checkbox2, R.id.statusText2)),
+            Triple(R.id.btnVideo3, R.raw.boyun_egzersizi3, Pair(R.id.checkbox3, R.id.statusText3)),
+            Triple(R.id.btnVideo4, R.raw.boyun_egzersizi4, Pair(R.id.checkbox4, R.id.statusText4)),
+            Triple(R.id.btnVideo5, R.raw.boyun_egzersizi5, Pair(R.id.checkbox5, R.id.statusText5)),
+            Triple(R.id.btnVideo6, R.raw.boyun_egzersizi6, Pair(R.id.checkbox6, R.id.statusText6)),
+           
+
+
+            )
+
+        for ((buttonId, videoRes, checkboxPair) in videoMappings) {
+            val button = view.findViewById<Button>(buttonId)
+            val checkbox = view.findViewById<CheckBox>(checkboxPair.first)
+            val statusText = view.findViewById<TextView>(checkboxPair.second)
+
+            // Butona tıklanıldığında videoyu oynat ve checkbox'ı işaretle
+            button.setOnClickListener {
+                enterFullscreen()
+                playVideo(videoRes)
+
+                checkbox.isChecked = true
+                statusText.text = "Yapıldı"
+            }
+
+            // Checkbox durumu değiştirildiğinde TextView metnini güncelle
+            checkbox.setOnCheckedChangeListener { _, isChecked ->
+                statusText.text = if (isChecked) "Yapıldı" else "Yapılmadı"
+            }
+        }
+
+        exitButton.setOnClickListener {
+            exitFullscreen()
         }
 
         exitButton.setOnClickListener {
