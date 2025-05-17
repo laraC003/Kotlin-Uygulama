@@ -1,10 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/elEgzersizFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".vucutBolgeleri.elEgzersizFragment">
+    android:layout_height="match_parent">
 
+    <!-- Tam ekran VideoView -->
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Tam ekran modundan çıkış butonu -->
+    <ImageButton
+        android:id="@+id/btnExitFullscreen"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="top|start"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:contentDescription="Tam ekrandan çık"
+        android:visibility="gone" />
+
+    <!-- Egzersiz video butonlarını içeren scrollable içerik -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <!-- 2 adet video butonu -->
+            <Button
+                android:id="@+id/btnVideo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El Egzersizi 1" />
+
+            <Button
+                android:id="@+id/btnVideo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El Egzersizi 2" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
