@@ -219,7 +219,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 5" />
+                    android:text="Video 7" />
 
                 <CheckBox
                     android:id="@+id/checkbox7"
@@ -246,7 +246,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 5" />
+                    android:text="Video 8" />
 
                 <CheckBox
                     android:id="@+id/checkbox8"
@@ -273,7 +273,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 5" />
+                    android:text="Video 9" />
 
                 <CheckBox
                     android:id="@+id/checkbox9"
