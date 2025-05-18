@@ -27,7 +27,7 @@ class misafirFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val e1 = Egzersiz(R.drawable.bas,"Baş Egzersizi")
+        val e1 = Egzersiz(R.drawable.omuz,"Omuz Egzersizi")
         val e2 = Egzersiz(R.drawable.boyun,"Boyun Egzersizi")
         val e3 = Egzersiz(R.drawable.sirt,"Sırt Egzersizi")
         val e4 = Egzersiz(R.drawable.bel,"Bel Egzersizi")
