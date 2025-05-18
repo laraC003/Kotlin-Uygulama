@@ -3,14 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Tam ekran VideoView -->
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
-    <!-- Tam ekran modundan çıkış butonu -->
+    <!-- Geri butonu sadece video oynarken görünür -->
     <ImageButton
         android:id="@+id/btnExitFullscreen"
         android:layout_width="48dp"
@@ -19,34 +18,78 @@
         android:layout_margin="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:contentDescription="Tam ekrandan çık"
         android:visibility="gone" />
 
-    <!-- Egzersiz video butonlarını içeren scrollable içerik -->
     <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:gravity="center_horizontal">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- 2 adet video butonu -->
-            <Button
-                android:id="@+id/btnVideo1"
+            <!-- Tek satır: Video 1 -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="El Egzersizi 1" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
-            <Button
-                android:id="@+id/btnVideo2"
+                <Button
+                    android:id="@+id/btnVideo1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 1" />
+
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Video 2 -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="El Egzersizi 2" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVideo2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Video 2" />
+
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/statusText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yapılmadı"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
