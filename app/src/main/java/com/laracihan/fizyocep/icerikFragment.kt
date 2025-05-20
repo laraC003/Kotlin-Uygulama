@@ -1,100 +1,89 @@
 package com.laracihan.fizyocep
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.laracihan.fizyocep.databinding.FragmentIcerikBinding
-import com.laracihan.fizyocep.databinding.FragmentMisafirBinding
-import kotlin.math.E
 
-class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
+class icerikFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
 
     private var _binding: FragmentIcerikBinding? = null
-    private val binding get()= _binding!!
-    private lateinit var egzersizListe : ArrayList<Egzersiz>
-    private lateinit var popup:PopupMenu
+    private val binding get() = _binding!!
+
+    private lateinit var egzersizListe: ArrayList<Egzersiz>
+    private lateinit var popup: PopupMenu
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        auth=Firebase.auth
+        auth = Firebase.auth
+        db = FirebaseFirestore.getInstance()
 
-        val e1 = Egzersiz(R.drawable.omuz,"Omuz Egzersizi")
-        val e2 = Egzersiz(R.drawable.boyun,"Boyun Egzersizi")
-        val e3 = Egzersiz(R.drawable.sirt,"Sırt Egzersizi")
-        val e4 = Egzersiz(R.drawable.bel,"Bel Egzersizi")
-        val e5 = Egzersiz(R.drawable.kol,"Kol Egzersizi")
-        val e6 = Egzersiz(R.drawable.el,"El Egzersizi")
-        val e7 = Egzersiz(R.drawable.bacak,"Bacak Egzersizi")
-        val e8 = Egzersiz(R.drawable.ayak,"Ayak Egzersizi")
-
-        egzersizListe = arrayListOf(e1,e2,e3,e4,e5,e6,e7,e8)
-
+        egzersizListe = arrayListOf(
+            Egzersiz(R.drawable.omuz, "Omuz Egzersizi"),
+            Egzersiz(R.drawable.boyun, "Boyun Egzersizi"),
+            Egzersiz(R.drawable.sirt, "Sırt Egzersizi"),
+            Egzersiz(R.drawable.bel, "Bel Egzersizi"),
+            Egzersiz(R.drawable.kol, "Kol Egzersizi"),
+            Egzersiz(R.drawable.el, "El Egzersizi"),
+            Egzersiz(R.drawable.bacak, "Bacak Egzersizi"),
+            Egzersiz(R.drawable.ayak, "Ayak Egzersizi")
+        )
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentIcerikBinding.inflate(inflater,container,false)
-        val view =binding.root
-        return view
+    ): View {
+        _binding = FragmentIcerikBinding.inflate(inflater, container, false)
+        return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Kullanıcı adı Firestore'dan çek ve göster
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            db.collection("users").document(currentUser.uid).get()
+                .addOnSuccessListener { document ->
+                    if (document != null && document.exists()) {
+                        val kullaniciAdi = document.getString("kullaniciAdi")
+                        binding.kullaniciAdiTextView.text = kullaniciAdi ?: "Kullanıcı"
+                    } else {
+                        binding.kullaniciAdiTextView.text = "Kullanıcı"
+                    }
+                }
+                .addOnFailureListener {
+                    binding.kullaniciAdiTextView.text = "Kullanıcı"
+                }
+        } else {
+            binding.kullaniciAdiTextView.text = "Giriş yapılmadı"
+        }
+
         val adapter = Egzersizadapter(egzersizListe) { secilenEgzersiz ->
             when (secilenEgzersiz.egzersizTuru) {
-                "Omuz Egzersizi" -> {
-                    val action = icerikFragmentDirections.actioIcerikFragmentToOmuzEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-                }
-                "Boyun Egzersizi" -> {
-                    val action = icerikFragmentDirections.actionIcerikFragmentToBoyunEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-                }
-                "Sırt Egzersizi"->{
-                    val action = icerikFragmentDirections.actionIcerikFragmentToSirtEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-
-                }
-                "Bel Egzersizi"->{
-                    val action = icerikFragmentDirections.actionIcerikFragmentToBelEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-                }
-                "Kol Egzersizi"->{
-                    val action = icerikFragmentDirections.actionIcerikFragmentToKolEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-                }
-                "El Egzersizi"->{
-                    val action = icerikFragmentDirections.actionIcerikFragmentToElEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-
-                }
-                "Bacak Egzersizi"->{
-                    val action = icerikFragmentDirections.actionIcerikFragmentToBacakEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-                }
-                "Ayak Egzersizi"->{
-                    val action = icerikFragmentDirections.actionIcerikFragmentToAyakEgzersizFragment()
-                    Navigation.findNavController(view).navigate(action)
-                }
-                else -> {
-                    Toast.makeText(requireContext(), "Tanımsız egzersiz", Toast.LENGTH_SHORT).show()
-
-                }
+                "Omuz Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actioIcerikFragmentToOmuzEgzersizFragment())
+                "Boyun Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToBoyunEgzersizFragment())
+                "Sırt Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToSirtEgzersizFragment())
+                "Bel Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToBelEgzersizFragment())
+                "Kol Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToKolEgzersizFragment())
+                "El Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToElEgzersizFragment())
+                "Bacak Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToBacakEgzersizFragment())
+                "Ayak Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToAyakEgzersizFragment())
+                else -> Toast.makeText(requireContext(), "Tanımsız egzersiz", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -104,35 +93,31 @@ class icerikFragment : Fragment() ,PopupMenu.OnMenuItemClickListener{
         binding.floatingActionButton.setOnClickListener { floatingButtonTiklandi(it) }
 
         popup = PopupMenu(requireContext(), binding.floatingActionButton)
-        val inflater = popup.menuInflater
-        inflater.inflate(R.menu.my_menu, popup.menu)
+        popup.menuInflater.inflate(R.menu.my_menu, popup.menu)
         popup.setOnMenuItemClickListener(this)
     }
 
-
-    fun floatingButtonTiklandi(view: View){
-
+    private fun floatingButtonTiklandi(view: View) {
         popup.show()
-
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-        if(item?.itemId == R.id.cikisItem){
-            auth.signOut()
-            val navOptions = androidx.navigation.navOptions {
-                popUpTo(R.id.icerikFragment) {
-                    inclusive = true // Mevcut fragment'ı da sil
+        return when (item?.itemId) {
+            R.id.cikisItem -> {
+                auth.signOut()
+                val navOptions = androidx.navigation.navOptions {
+                    popUpTo(R.id.icerikFragment) { inclusive = true }
                 }
+                val action = icerikFragmentDirections.actionIcerikFragmentToGirisFragment()
+                Navigation.findNavController(requireView()).navigate(action, navOptions)
+                true
             }
-
-            val action= icerikFragmentDirections.actionIcerikFragmentToGirisFragment()
-
-
-            Navigation.findNavController(requireView()).navigate(action,navOptions)
+            else -> false
         }
-        return true
-
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
