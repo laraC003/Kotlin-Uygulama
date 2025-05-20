@@ -56,6 +56,8 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-auth")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.4.5")
+
 
     val nav_version = "2.7.7"
 // Kotlin

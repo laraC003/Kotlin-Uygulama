@@ -10,69 +10,55 @@ import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.laracihan.fizyocep.R
 import com.laracihan.fizyocep.databinding.FragmentGirisBinding
-import com.laracihan.fizyocep.databinding.FragmentMisafirBinding
 
 class girisFragment : Fragment() {
-
 
     private var _binding: FragmentGirisBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        auth= Firebase.auth
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGirisBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.girisButton.setOnClickListener{giris(it)}
 
+        // Otomatik yönlendirme YOK, kullanıcı manuel giriş yapmalı
 
-        val guncelKullanici=auth.currentUser
+        binding.girisButton.setOnClickListener {
+            val email = binding.mailEditText2.text.toString().trim()
+            val password = binding.sifreEditText.text.toString().trim()
 
-        if(guncelKullanici != null){
-            val kullanici = true
-            val action = girisFragmentDirections.actionGirisFragmentToIcerikFragment(kullanici)
-            Navigation.findNavController(view).navigate(action)
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Lütfen e-posta ve şifre giriniz", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val action = girisFragmentDirections.actionGirisFragmentToIcerikFragment(true)
+                        Navigation.findNavController(view).navigate(action)
+                    } else {
+                        Toast.makeText(requireContext(), task.exception?.localizedMessage ?: "Giriş başarısız", Toast.LENGTH_LONG).show()
+                    }
+                }
         }
-
     }
 
-
-
-    fun giris(view: View){
-
-        val email=binding.mailEditText2.text.toString()
-        val password =binding.sifreEditText.text.toString()
-
-        if(email.isNotEmpty() && password.isNotEmpty()){
-            auth.signInWithEmailAndPassword(email,password).addOnSuccessListener {
-                val kullanici = true
-                val action = girisFragmentDirections.actionGirisFragmentToIcerikFragment(kullanici)
-                Navigation.findNavController(view).navigate(action)
-
-            }.addOnFailureListener{exception->
-                Toast.makeText(requireContext(),exception.localizedMessage,Toast.LENGTH_LONG).show()
-
-            }
-        }
-
-
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

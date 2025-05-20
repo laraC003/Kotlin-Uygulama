@@ -2,28 +2,73 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/icerikFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".icerikFragment">
+    android:background="#F5F5F5"
+    android:padding="16dp">
 
+    <TextView
+        android:id="@+id/kullaniciAdiTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hoş geldin"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:background="@drawable/gradient_kullanici_adi"
+        android:elevation="6dp"
+        android:shadowColor="#80000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:letterSpacing="0.05"
+        android:gravity="start"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        />
+
+
+
+    <!-- Alt açıklama -->
+    <TextView
+        android:id="@+id/altYaziTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Egzersiz kategorilerinden birini seç"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/kullaniciAdiTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/icerikRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/altYaziTextView"
+        app:layout_constraintBottom_toTopOf="@id/floatingActionButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- FloatingActionButton -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Kapat"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white"
+        app:backgroundTint="#FFC107" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
