@@ -54,17 +54,17 @@ class icerikFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Kullanıcı adı Firestore'dan çek ve göster
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            db.collection("users").document(currentUser.uid).get()
+        val args = icerikFragmentArgs.fromBundle(requireArguments())
+        val kullaniciId = args.kullaniciId ?: ""
+        val kullaniciBoolean = args.kullanici
+
+        val kullaniciIdToFetch = if (kullaniciId.isNotEmpty()) kullaniciId else auth.currentUser?.uid
+
+        if (!kullaniciIdToFetch.isNullOrEmpty()) {
+            db.collection("users").document(kullaniciIdToFetch).get()
                 .addOnSuccessListener { document ->
-                    if (document != null && document.exists()) {
-                        val kullaniciAdi = document.getString("kullaniciAdi")
-                        binding.kullaniciAdiTextView.text = kullaniciAdi ?: "Kullanıcı"
-                    } else {
-                        binding.kullaniciAdiTextView.text = "Kullanıcı"
-                    }
+                    val kullaniciAdi = document.getString("kullaniciAdi")
+                    binding.kullaniciAdiTextView.text = kullaniciAdi ?: "Kullanıcı"
                 }
                 .addOnFailureListener {
                     binding.kullaniciAdiTextView.text = "Kullanıcı"
@@ -75,14 +75,30 @@ class icerikFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
 
         val adapter = Egzersizadapter(egzersizListe) { secilenEgzersiz ->
             when (secilenEgzersiz.egzersizTuru) {
-                "Omuz Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actioIcerikFragmentToOmuzEgzersizFragment())
-                "Boyun Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToBoyunEgzersizFragment())
-                "Sırt Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToSirtEgzersizFragment())
-                "Bel Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToBelEgzersizFragment())
-                "Kol Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToKolEgzersizFragment())
-                "El Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToElEgzersizFragment())
-                "Bacak Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToBacakEgzersizFragment())
-                "Ayak Egzersizi" -> Navigation.findNavController(view).navigate(icerikFragmentDirections.actionIcerikFragmentToAyakEgzersizFragment())
+                "Omuz Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actioIcerikFragmentToOmuzEgzersizFragment()
+                )
+                "Boyun Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToBoyunEgzersizFragment()
+                )
+                "Sırt Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToSirtEgzersizFragment()
+                )
+                "Bel Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToBelEgzersizFragment()
+                )
+                "Kol Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToKolEgzersizFragment()
+                )
+                "El Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToElEgzersizFragment()
+                )
+                "Bacak Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToBacakEgzersizFragment()
+                )
+                "Ayak Egzersizi" -> Navigation.findNavController(view).navigate(
+                    icerikFragmentDirections.actionIcerikFragmentToAyakEgzersizFragment()
+                )
                 else -> Toast.makeText(requireContext(), "Tanımsız egzersiz", Toast.LENGTH_SHORT).show()
             }
         }
@@ -96,6 +112,7 @@ class icerikFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
         popup.menuInflater.inflate(R.menu.my_menu, popup.menu)
         popup.setOnMenuItemClickListener(this)
     }
+
 
     private fun floatingButtonTiklandi(view: View) {
         popup.show()

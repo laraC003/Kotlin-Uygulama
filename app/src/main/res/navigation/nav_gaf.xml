@@ -13,7 +13,25 @@
         <action
             android:id="@+id/action_girisFragment_to_icerikFragment"
             app:destination="@id/icerikFragment" />
+
+        <action
+            android:id="@+id/actionGirisFragmentToDoktorFragment"
+            app:destination="@id/doktorFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/doktorFragment"
+        android:name="com.laracihan.fizyocep.DoktorFragment"
+        android:label="doktorFragment" >
+        <action
+            android:id="@+id/action_doktorFragment_to_icerikFragment"
+            app:destination="@id/icerikFragment">
+            <argument
+                android:name="kullaniciId"
+                app:argType="string" />
+        </action>
+    </fragment>
+
     <fragment
         android:id="@+id/kaydolFragment"
         android:name="com.laracihan.fizyocep.kaydolFragment"
@@ -23,11 +41,13 @@
             android:id="@+id/action_kaydolFragment_to_anasayfaFragment"
             app:destination="@id/anasayfaFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/misafirFragment"
         android:name="com.laracihan.fizyocep.misafirFragment"
         android:label="fragment_misafir"
         tools:layout="@layout/fragment_misafir" />
+
     <fragment
         android:id="@+id/anasayfaFragment"
         android:name="com.laracihan.fizyocep.anasayfaFragment"
@@ -43,18 +63,22 @@
             android:id="@+id/action_anasayfaFragment_to_misafirFragment"
             app:destination="@id/misafirFragment" />
     </fragment>
-    <fragment
 
+    <fragment
         android:id="@+id/icerikFragment"
         android:name="com.laracihan.fizyocep.icerikFragment"
         android:label="fragment_icerik"
         tools:layout="@layout/fragment_icerik" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string" />
+        <argument
+            android:name="kullanici"
+            app:argType="boolean"
+            android:defaultValue="false" />
         <action
             android:id="@+id/action_icerikFragment_to_girisFragment"
             app:destination="@id/girisFragment" />
-        <argument
-            android:name="kullanici"
-            app:argType="boolean" />
         <action
             android:id="@+id/actio_icerikFragment_to_omuzEgzersizFragment"
             app:destination="@id/omuzEgzersizFragment" />
@@ -80,41 +104,49 @@
             android:id="@+id/action_icerikFragment_to_ayakEgzersizFragment"
             app:destination="@id/ayakEgzersizFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/omuzEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.OmuzEgzersizFragment"
         android:label="fragment_omuz_egzersiz"
         tools:layout="@layout/fragment_omuz_egzersiz" />
+
     <fragment
         android:id="@+id/boyunEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BoyunEgzersizFragment"
         android:label="fragment_boyun_egzersiz"
         tools:layout="@layout/fragment_boyun_egzersiz" />
+
     <fragment
         android:id="@+id/sirtEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.SirtEgzersizFragment"
         android:label="fragment_sirt_egzersiz"
         tools:layout="@layout/fragment_sirt_egzersiz" />
+
     <fragment
         android:id="@+id/belEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BelEgzersizFragment"
         android:label="fragment_bel_egzersiz"
         tools:layout="@layout/fragment_bel_egzersiz" />
+
     <fragment
         android:id="@+id/bacakEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BacakEgzersizFragment"
         android:label="fragment_bacak_egzersiz"
         tools:layout="@layout/fragment_bacak_egzersiz" />
+
     <fragment
         android:id="@+id/kolEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.KolEgzersizFragment"
         android:label="fragment_kol_egzersiz"
         tools:layout="@layout/fragment_kol_egzersiz" />
+
     <fragment
         android:id="@+id/elEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.ElEgzersizFragment"
         android:label="fragment_el_egzersiz"
         tools:layout="@layout/fragment_el_egzersiz" />
+
     <fragment
         android:id="@+id/ayakEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.AyakEgzersizFragment"
