@@ -34,8 +34,6 @@ class girisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Otomatik yönlendirme YOK, kullanıcı manuel giriş yapmalı
-
         binding.girisButton.setOnClickListener {
             val email = binding.mailEditText2.text.toString().trim()
             val password = binding.sifreEditText.text.toString().trim()
@@ -48,8 +46,17 @@ class girisFragment : Fragment() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val action = girisFragmentDirections.actionGirisFragmentToIcerikFragment(true)
-                        Navigation.findNavController(view).navigate(action)
+                        val girisYapanEmail = auth.currentUser?.email
+                        if (girisYapanEmail == "doktor@gmail.com") {
+                            // Doktor kullanıcısı için DoktorFragment'a yönlendir
+                            val action = girisFragmentDirections.actionGirisFragmentToDoktorFragment()
+                            Navigation.findNavController(view).navigate(action)
+                        } else {
+                            // Diğer kullanıcılar için içerik fragmentına
+                            val kullaniciId = auth.currentUser?.uid ?: ""
+                            val action = girisFragmentDirections.actionGirisFragmentToIcerikFragment(kullaniciId, true)
+                            Navigation.findNavController(view).navigate(action)
+                        }
                     } else {
                         Toast.makeText(requireContext(), task.exception?.localizedMessage ?: "Giriş başarısız", Toast.LENGTH_LONG).show()
                     }

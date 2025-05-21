@@ -43,46 +43,44 @@ class kaydolFragment : Fragment() {
         val email = binding.mailEditText2.text.toString().trim()
         val password = binding.yeniParolaEditText.text.toString().trim()
         val password2 = binding.tekrarParolaEditText.text.toString().trim()
-        val kullaniciAdi = binding.isimEditText.text.toString().trim()  // Kullanıcı adı alanı
+        val kullaniciAdi = binding.isimEditText.text.toString().trim()
 
-        if (password2 == password) {
-            if (email.isNotEmpty() && password.isNotEmpty() && kullaniciAdi.isNotEmpty()) {
-                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val kullanici = auth.currentUser
-                        if (kullanici != null) {
-                            val kullaniciMap = hashMapOf(
-                                "email" to email,
-                                "kullaniciAdi" to kullaniciAdi
-                            )
-                            // Firestore'a kullanıcı bilgilerini kaydet
-                            db.collection("users").document(kullanici.uid)
-                                .set(kullaniciMap)
-                                .addOnSuccessListener {
-                                    // Kayıt ve Firestore kaydı başarılı, anasayfaya git
-                                    val action = kaydolFragmentDirections.actionKaydolFragmentToAnasayfaFragment()
-                                    Navigation.findNavController(view).navigate(action)
-                                }
-                                .addOnFailureListener { exception ->
-                                    Toast.makeText(requireContext(), exception.localizedMessage, Toast.LENGTH_LONG).show()
-                                }
+        if (password2 != password) {
+            Toast.makeText(requireContext(), "Şifreler eşleşmiyor", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (email.isEmpty() || password.isEmpty() || kullaniciAdi.isEmpty()) {
+            Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = auth.currentUser
+                if (user != null) {
+                    val kullaniciMap = hashMapOf(
+                        "email" to email,
+                        "kullaniciAdi" to kullaniciAdi,
+                        "createdAt" to System.currentTimeMillis()
+                    )
+                    db.collection("users").document(user.uid).set(kullaniciMap)
+                        .addOnSuccessListener {
+                            Toast.makeText(requireContext(), "Kayıt başarılı", Toast.LENGTH_SHORT).show()
+                            val action = kaydolFragmentDirections.actionKaydolFragmentToAnasayfaFragment()
+                            Navigation.findNavController(view).navigate(action)
                         }
-                    } else {
-                        Toast.makeText(requireContext(), task.exception?.localizedMessage ?: "Kayıt başarısız", Toast.LENGTH_LONG).show()
-                    }
-                }.addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Kaydınız başarılı", Toast.LENGTH_SHORT).show()
-
-                    val action = kaydolFragmentDirections.actionKaydolFragmentToAnasayfaFragment()
-                    Navigation.findNavController(view).navigate(action)
+                        .addOnFailureListener { e ->
+                            Toast.makeText(requireContext(), "Firestore kaydı başarısız: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                        }
                 }
             } else {
-                Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Kayıt başarısız: ${task.exception?.localizedMessage}", Toast.LENGTH_LONG).show()
             }
-        } else {
-            Toast.makeText(requireContext(), "Şifreler eşleşmiyor", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
