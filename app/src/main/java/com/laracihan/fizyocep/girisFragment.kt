@@ -43,6 +43,8 @@ class girisFragment : Fragment() {
                 return@setOnClickListener
             }
 
+
+
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -58,7 +60,7 @@ class girisFragment : Fragment() {
                             Navigation.findNavController(view).navigate(action)
                         }
                     } else {
-                        Toast.makeText(requireContext(), task.exception?.localizedMessage ?: "Giriş başarısız", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(),  "Giriş başarısız", Toast.LENGTH_LONG).show()
                     }
                 }
         }

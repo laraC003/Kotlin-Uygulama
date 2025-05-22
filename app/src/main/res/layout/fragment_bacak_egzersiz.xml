@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Tam ekran VideoView -->
+
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
-    <!-- Tam ekran modundan çıkma butonu -->
+
     <ImageButton
         android:id="@+id/btnExitFullscreen"
         android:layout_width="48dp"
@@ -22,7 +22,7 @@
         android:contentDescription="Tam ekrandan çık"
         android:visibility="gone" />
 
-    <!-- Normal içerik -->
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Video 1 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 1" />
+                    android:text="Egzersiz 1" />
 
                 <CheckBox
                     android:id="@+id/checkbox1"
@@ -63,7 +63,7 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <!-- Video 2 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 2" />
+                    android:text="Egzersiz 2" />
 
                 <CheckBox
                     android:id="@+id/checkbox2"
@@ -92,7 +92,7 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <!-- Video 3 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 3" />
+                    android:text="Egzersiz 3" />
 
                 <CheckBox
                     android:id="@+id/checkbox3"
@@ -121,7 +121,7 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <!-- Video 4 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 4" />
+                    android:text="Egzersiz 4" />
 
                 <CheckBox
                     android:id="@+id/checkbox4"
@@ -150,7 +150,7 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <!-- Video 5 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 5" />
+                    android:text="Egzersiz 5" />
 
                 <CheckBox
                     android:id="@+id/checkbox5"
@@ -179,7 +179,7 @@
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <!-- Video 6 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 6" />
+                    android:text="Egzersiz 6" />
 
                 <CheckBox
                     android:id="@+id/checkbox6"
@@ -219,7 +219,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 7" />
+                    android:text="Egzersiz 7" />
 
                 <CheckBox
                     android:id="@+id/checkbox7"
@@ -246,7 +246,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 8" />
+                    android:text="Egzersiz 8" />
 
                 <CheckBox
                     android:id="@+id/checkbox8"
@@ -273,7 +273,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Video 9" />
+                    android:text="Egzersiz 9" />
 
                 <CheckBox
                     android:id="@+id/checkbox9"
