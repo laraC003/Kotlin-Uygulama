@@ -13,7 +13,7 @@ class misafirFragment : Fragment() {
     private var _binding: FragmentMisafirBinding? = null
     private val binding get() = _binding!!
 
-    // Egzersiz listesi burada tanımlandı
+
     private lateinit var egzersizListe: ArrayList<Egzersiz>
 
     override fun onCreateView(
@@ -39,7 +39,7 @@ class misafirFragment : Fragment() {
         egzersizListe = arrayListOf(e1,e2,e3,e4,e5,e6,e7,e8)
         
 
-        // Adapteri sadece liste ile oluştur
+
         val adapter = EgzersizAdapterMisafir(egzersizListe)
 
         binding.recylerView.layoutManager = GridLayoutManager(requireContext(), 2)

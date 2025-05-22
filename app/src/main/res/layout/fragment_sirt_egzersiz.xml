@@ -47,6 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 1" />
 
                 <CheckBox
@@ -76,6 +77,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 2" />
 
                 <CheckBox
@@ -105,6 +107,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 3" />
 
                 <CheckBox
@@ -134,6 +137,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 4" />
 
                 <CheckBox
@@ -163,6 +167,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 5" />
 
                 <CheckBox
@@ -192,6 +197,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 6" />
 
                 <CheckBox
@@ -219,6 +225,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 7" />
 
                 <CheckBox
@@ -246,6 +253,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 8" />
 
                 <CheckBox
@@ -273,6 +281,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 9" />
 
                 <CheckBox
@@ -300,6 +309,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 10" />
 
                 <CheckBox
@@ -327,6 +337,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 11" />
 
                 <CheckBox
@@ -354,6 +365,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 12" />
 
                 <CheckBox
@@ -381,6 +393,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FFC107"
                     android:text="Egzersiz 13" />
 
                 <CheckBox

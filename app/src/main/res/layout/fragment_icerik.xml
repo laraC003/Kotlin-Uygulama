@@ -33,7 +33,7 @@
 
 
 
-    <!-- Alt açıklama -->
+
     <TextView
         android:id="@+id/altYaziTextView"
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="4dp"/>
 
-    <!-- RecyclerView -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/icerikRecyclerView"
         android:layout_width="0dp"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- FloatingActionButton -->
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"

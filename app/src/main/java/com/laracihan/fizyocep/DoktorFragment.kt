@@ -34,7 +34,6 @@ class DoktorFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         adapter = KullaniciAdapter(listOf()) { kullaniciId ->
-            // Kullanıcıya tıklanınca içerik sayfasına geç
             val action = DoktorFragmentDirections.actionDoktorFragmentToIcerikFragment(
                 kullaniciId = kullaniciId,
                 kullanici = true
@@ -59,7 +58,6 @@ class DoktorFragment : Fragment() {
                     val email = doc.getString("email") ?: return@mapNotNull null
                     val kullaniciAdi = doc.getString("kullaniciAdi") ?: "İsimsiz"
 
-                    // Doktor kendi hesabını görmesin
                     if (currentUserEmail == email) return@mapNotNull null
 
                     Kullanici(doc.id, email, kullaniciAdi)

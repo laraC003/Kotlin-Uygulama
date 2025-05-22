@@ -33,126 +33,126 @@
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 1"/>
+                <Button android:id="@+id/btnBelVideo1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 1"/>
                 <CheckBox android:id="@+id/checkbox1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 2"/>
+                <Button android:id="@+id/btnBelVideo2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 2"/>
                 <CheckBox android:id="@+id/checkbox2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 3"/>
+                <Button android:id="@+id/btnBelVideo3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 3"/>
                 <CheckBox android:id="@+id/checkbox3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 4"/>
+                <Button android:id="@+id/btnBelVideo4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 4"/>
                 <CheckBox android:id="@+id/checkbox4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo5" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 5"/>
+                <Button android:id="@+id/btnBelVideo5" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 5"/>
                 <CheckBox android:id="@+id/checkbox5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo6" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 6"/>
+                <Button android:id="@+id/btnBelVideo6" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 6"/>
                 <CheckBox android:id="@+id/checkbox6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo7" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 7"/>
+                <Button android:id="@+id/btnBelVideo7" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 7"/>
                 <CheckBox android:id="@+id/checkbox7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo8" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 8"/>
+                <Button android:id="@+id/btnBelVideo8" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 8"/>
                 <CheckBox android:id="@+id/checkbox8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo9" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 9"/>
+                <Button android:id="@+id/btnBelVideo9" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 9"/>
                 <CheckBox android:id="@+id/checkbox9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo10" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 10"/>
+                <Button android:id="@+id/btnBelVideo10" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 10"/>
                 <CheckBox android:id="@+id/checkbox10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo11" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 11"/>
+                <Button android:id="@+id/btnBelVideo11" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 11"/>
                 <CheckBox android:id="@+id/checkbox11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo12" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 12"/>
+                <Button android:id="@+id/btnBelVideo12" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 12"/>
                 <CheckBox android:id="@+id/checkbox12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo13" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 13"/>
+                <Button android:id="@+id/btnBelVideo13" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 13"/>
                 <CheckBox android:id="@+id/checkbox13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo14" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 14"/>
+                <Button android:id="@+id/btnBelVideo14" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 14"/>
                 <CheckBox android:id="@+id/checkbox14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo15" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 15"/>
+                <Button android:id="@+id/btnBelVideo15" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 15"/>
                 <CheckBox android:id="@+id/checkbox15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo16" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 16"/>
+                <Button android:id="@+id/btnBelVideo16" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 16"/>
                 <CheckBox android:id="@+id/checkbox16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo17" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 17"/>
+                <Button android:id="@+id/btnBelVideo17" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 17"/>
                 <CheckBox android:id="@+id/checkbox17" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText17" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
-                <Button android:id="@+id/btnBelVideo18" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Egzersiz 18"/>
+                <Button android:id="@+id/btnBelVideo18" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:backgroundTint="#FFC107" android:text="Egzersiz 18"/>
                 <CheckBox android:id="@+id/checkbox18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
                 <TextView android:id="@+id/statusText18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yapılmadı" android:layout_marginStart="8dp"/>
             </LinearLayout>

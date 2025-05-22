@@ -24,11 +24,11 @@ class EgzersizTakipAdapter(
         holder.binding.egzersizAdi.text = egzersizTakip.egzersizAdi
         holder.binding.gif.setImageResource(egzersizTakip.gif)
 
-        // Önceki listener'ı temizle
+
         holder.binding.checkBox.setOnCheckedChangeListener(null)
         holder.binding.checkBox.isChecked = egzersizTakip.isChecked
 
-        // Yeni listener ekle
+
         holder.binding.checkBox.setOnCheckedChangeListener { _, isChecked ->
             egzersizTakip.isChecked = isChecked
             onCheckedChange(egzersizTakip, isChecked)
