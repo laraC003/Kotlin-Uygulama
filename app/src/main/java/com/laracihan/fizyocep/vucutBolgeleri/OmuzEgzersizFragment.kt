@@ -13,7 +13,11 @@ import android.view.ViewGroup
 import android.media.MediaPlayer
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.graphics.component1
+import androidx.core.graphics.component2
+import androidx.navigation.fragment.navArgs
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class OmuzEgzersizFragment : Fragment() {
 
@@ -24,27 +28,31 @@ class OmuzEgzersizFragment : Fragment() {
 
     private var currentCheckbox: CheckBox? = null
     private var currentStatusText: TextView? = null
+    private var currentFirestoreKey: String? = null
+
     private val handler = Handler(Looper.getMainLooper())
     private var stopRunnable: Runnable? = null
     private var userId: String? = null
     private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var db: FirebaseFirestore
+
+    private val args: BoyunEgzersizFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_omuz_egzersiz, container, false)
+    ): View = inflater.inflate(R.layout.fragment_omuz_egzersiz, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val firebaseUser = FirebaseAuth.getInstance().currentUser
-        userId = firebaseUser?.uid
-
-        if (userId == null) {
-            Toast.makeText(requireContext(), "Kullanıcı bilgisi alınamadı.", Toast.LENGTH_SHORT).show()
+        userId = args.kullaniciId
+        if (userId.isNullOrEmpty()) {
+            Toast.makeText(requireContext(), "Kullanıcı ID alınamadı", Toast.LENGTH_SHORT).show()
             return
         }
 
+        db = FirebaseFirestore.getInstance()
         sharedPrefs = requireContext().getSharedPreferences("checkbox_prefs", Context.MODE_PRIVATE)
 
         videoView = view.findViewById(R.id.videoView)
@@ -56,28 +64,34 @@ class OmuzEgzersizFragment : Fragment() {
         videoView.setMediaController(mediaController)
 
         val videoMappings = listOf(
-            Triple(R.id.btnVideo1, R.raw.omuz_egzersizi, Triple(R.id.checkbox1, R.id.statusText1, 1)),
-            Triple(R.id.btnVideo2, R.raw.omuz_egzersizi2, Triple(R.id.checkbox2, R.id.statusText2, 2)),
-            Triple(R.id.btnVideo3, R.raw.omuz_egzersizi3, Triple(R.id.checkbox3, R.id.statusText3, 3)),
-            Triple(R.id.btnVideo4, R.raw.omuz_egzersizi4, Triple(R.id.checkbox4, R.id.statusText4, 4)),
-            Triple(R.id.btnVideo5, R.raw.omuz_egzersizi5, Triple(R.id.checkbox5, R.id.statusText5, 5)),
-            Triple(R.id.btnVideo6, R.raw.omuz_egzersizi6, Triple(R.id.checkbox6, R.id.statusText6, 6))
+            Triple(R.id.btnVideo1, Pair(R.raw.omuz_egzersizi, 30_000), Triple(R.id.checkbox1, R.id.statusText1, 1)),
+            Triple(R.id.btnVideo2, Pair(R.raw.omuz_egzersizi2, 30_000), Triple(R.id.checkbox2, R.id.statusText2, 2)),
+            Triple(R.id.btnVideo3, Pair(R.raw.omuz_egzersizi3, 30_000), Triple(R.id.checkbox3, R.id.statusText3, 3)),
+            Triple(R.id.btnVideo4, Pair(R.raw.omuz_egzersizi4, 30_000), Triple(R.id.checkbox4, R.id.statusText4, 4)),
+            Triple(R.id.btnVideo5, Pair(R.raw.omuz_egzersizi5, 30_000), Triple(R.id.checkbox5, R.id.statusText5, 5)),
+            Triple(R.id.btnVideo6, Pair(R.raw.omuz_egzersizi6, 30_000), Triple(R.id.checkbox6, R.id.statusText6, 6))
         )
 
-        for ((buttonId, videoRes, views) in videoMappings) {
+        for ((buttonId, videoData, viewData) in videoMappings) {
             val button = view.findViewById<Button>(buttonId)
-            val checkbox = view.findViewById<CheckBox>(views.first)
-            val statusText = view.findViewById<TextView>(views.second)
-            val videoIndex = views.third
-            val key = "${userId}_video_done_$videoIndex"
+            val (videoResId, durationMs) = videoData
+            val (checkboxId, statusTextId, index) = viewData
 
-            // Önceki durumu SharedPreferences’tan oku
-            val isDone = sharedPrefs.getBoolean(key, false)
-            checkbox.isChecked = isDone
-            statusText.text = if (isDone) "Yapıldı" else "Yapılmadı"
-            checkbox.isEnabled = isDone
+            val checkbox = view.findViewById<CheckBox>(checkboxId)
+            val statusText = view.findViewById<TextView>(statusTextId)
 
-            // Checkbox’ı manuel tıklamaya kapat
+            val sharedPrefsKey = "${userId}_omuz_done_$index"
+            val firestoreKey = "omuz_egzersizi_$index"
+
+            db.collection("users").document(userId!!).collection("tamamlananEgzersizler")
+                .document(firestoreKey).get()
+                .addOnSuccessListener {
+                    val isDone = it.getBoolean("tamamlandi") ?: false
+                    checkbox.isChecked = isDone
+                    checkbox.isEnabled = isDone
+                    statusText.text = if (isDone) "Yapıldı" else "Yapılmadı"
+                }
+
             checkbox.setOnClickListener {
                 if (!checkbox.isEnabled) checkbox.isChecked = false
             }
@@ -85,11 +99,13 @@ class OmuzEgzersizFragment : Fragment() {
             button.setOnClickListener {
                 currentCheckbox = checkbox
                 currentStatusText = statusText
+                currentFirestoreKey = firestoreKey
+
                 checkbox.isChecked = false
                 checkbox.isEnabled = false
                 statusText.text = "İzleniyor..."
 
-                playVideoLoopedFor30Seconds(videoRes, videoIndex)
+                playVideoWithDuration(videoResId, durationMs, sharedPrefsKey)
                 enterFullscreen()
             }
         }
@@ -99,7 +115,7 @@ class OmuzEgzersizFragment : Fragment() {
         }
     }
 
-    private fun playVideoLoopedFor30Seconds(resId: Int, videoIndex: Int) {
+    private fun playVideoWithDuration(resId: Int, durationMs: Int, sharedPrefsKey: String) {
         val uri = Uri.parse("android.resource://${requireContext().packageName}/$resId")
         videoView.setVideoURI(uri)
 
@@ -120,15 +136,28 @@ class OmuzEgzersizFragment : Fragment() {
                 }
 
                 currentStatusText?.text = "Yapıldı"
+                sharedPrefs.edit().putBoolean(sharedPrefsKey, true).apply()
 
-                val key = "${userId}_video_done_$videoIndex"
-                sharedPrefs.edit().putBoolean(key, true).apply()
+                currentFirestoreKey?.let { key -> saveToFirestore(key) }
 
                 exitFullscreen()
             }
         }
 
-        handler.postDelayed(stopRunnable!!, 30_000) // 30 saniye sonra durdur
+        handler.postDelayed(stopRunnable!!, durationMs.toLong())
+    }
+
+    private fun saveToFirestore(egzersizAdi: String) {
+        val data = mapOf(
+            "tamamlandi" to true,
+            "timestamp" to System.currentTimeMillis()
+        )
+
+        db.collection("users")
+            .document(userId!!)
+            .collection("tamamlananEgzersizler")
+            .document(egzersizAdi)
+            .set(data)
     }
 
     private fun cancelStopRunnable() {
@@ -150,3 +179,4 @@ class OmuzEgzersizFragment : Fragment() {
         scrollView.visibility = View.VISIBLE
     }
 }
+

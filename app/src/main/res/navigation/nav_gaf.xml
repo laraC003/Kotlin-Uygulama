@@ -109,48 +109,87 @@
         android:id="@+id/omuzEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.OmuzEgzersizFragment"
         android:label="fragment_omuz_egzersiz"
-        tools:layout="@layout/fragment_omuz_egzersiz" />
+        tools:layout="@layout/fragment_omuz_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
     <fragment
         android:id="@+id/boyunEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BoyunEgzersizFragment"
         android:label="fragment_boyun_egzersiz"
-        tools:layout="@layout/fragment_boyun_egzersiz" />
+        tools:layout="@layout/fragment_boyun_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/sirtEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.SirtEgzersizFragment"
         android:label="fragment_sirt_egzersiz"
-        tools:layout="@layout/fragment_sirt_egzersiz" />
+        tools:layout="@layout/fragment_sirt_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
     <fragment
         android:id="@+id/belEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BelEgzersizFragment"
         android:label="fragment_bel_egzersiz"
-        tools:layout="@layout/fragment_bel_egzersiz" />
+        tools:layout="@layout/fragment_bel_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
     <fragment
         android:id="@+id/bacakEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.BacakEgzersizFragment"
         android:label="fragment_bacak_egzersiz"
-        tools:layout="@layout/fragment_bacak_egzersiz" />
+        tools:layout="@layout/fragment_bacak_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
     <fragment
         android:id="@+id/kolEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.KolEgzersizFragment"
         android:label="fragment_kol_egzersiz"
-        tools:layout="@layout/fragment_kol_egzersiz" />
+        tools:layout="@layout/fragment_kol_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
     <fragment
         android:id="@+id/elEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.ElEgzersizFragment"
         android:label="fragment_el_egzersiz"
-        tools:layout="@layout/fragment_el_egzersiz" />
+        tools:layout="@layout/fragment_el_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
     <fragment
         android:id="@+id/ayakEgzersizFragment"
         android:name="com.laracihan.fizyocep.vucutBolgeleri.AyakEgzersizFragment"
         android:label="fragment_ayak_egzersiz"
-        tools:layout="@layout/fragment_ayak_egzersiz" />
+        tools:layout="@layout/fragment_ayak_egzersiz" >
+        <argument
+            android:name="kullaniciId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
 </navigation>

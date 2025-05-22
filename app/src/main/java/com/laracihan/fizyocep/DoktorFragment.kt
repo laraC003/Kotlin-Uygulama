@@ -1,25 +1,28 @@
 package com.laracihan.fizyocep
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DoktorFragment : Fragment() {
 
     private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: KullaniciAdapter  // Kullanıcı listeleme adapterin
+    private lateinit var adapter: KullaniciAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(
@@ -31,10 +34,14 @@ class DoktorFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         adapter = KullaniciAdapter(listOf()) { kullaniciId ->
-            // Kullanıcıya tıklanınca içerik fragmentına yönlendirme
-            val action = DoktorFragmentDirections.actionDoktorFragmentToIcerikFragment(kullaniciId)
+            // Kullanıcıya tıklanınca içerik sayfasına geç
+            val action = DoktorFragmentDirections.actionDoktorFragmentToIcerikFragment(
+                kullaniciId = kullaniciId,
+                kullanici = true
+            )
             findNavController().navigate(action)
         }
+
         recyclerView.adapter = adapter
 
         kullanicilariGetir()
@@ -43,18 +50,28 @@ class DoktorFragment : Fragment() {
     }
 
     private fun kullanicilariGetir() {
+        val currentUserEmail = auth.currentUser?.email
+
         db.collection("users")
             .get()
             .addOnSuccessListener { documents ->
-                val kullanicilar = documents.map { doc ->
-                    val email = doc.getString("email") ?: "Bilinmiyor"
+                val kullanicilar = documents.mapNotNull { doc ->
+                    val email = doc.getString("email") ?: return@mapNotNull null
                     val kullaniciAdi = doc.getString("kullaniciAdi") ?: "İsimsiz"
+
+                    // Doktor kendi hesabını görmesin
+                    if (currentUserEmail == email) return@mapNotNull null
+
                     Kullanici(doc.id, email, kullaniciAdi)
                 }
                 adapter.updateData(kullanicilar)
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "Kullanıcılar getirilemedi: ${exception.localizedMessage}", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Kullanıcılar getirilemedi: ${exception.localizedMessage}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
     }
 }
