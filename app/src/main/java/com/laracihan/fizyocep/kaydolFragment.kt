@@ -18,12 +18,12 @@ class kaydolFragment : Fragment() {
     private var _binding: FragmentKaydolBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseFirestore  // Firestore nesnesi
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-        db = FirebaseFirestore.getInstance()  // Firestore'u başlat
+        db = FirebaseFirestore.getInstance()
     }
 
     override fun onCreateView(
