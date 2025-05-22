@@ -12,7 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.navigation.fragment.navArgs
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class BacakEgzersizFragment : Fragment() {
 
@@ -23,27 +25,31 @@ class BacakEgzersizFragment : Fragment() {
 
     private var currentCheckbox: CheckBox? = null
     private var currentStatusText: TextView? = null
+    private var currentFirestoreKey: String? = null
+
     private val handler = Handler(Looper.getMainLooper())
     private var stopRunnable: Runnable? = null
     private var userId: String? = null
     private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var db: FirebaseFirestore
+
+    private val args: BacakEgzersizFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_bacak_egzersiz, container, false)
+    ): View = inflater.inflate(R.layout.fragment_bacak_egzersiz, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val firebaseUser = FirebaseAuth.getInstance().currentUser
-        userId = firebaseUser?.uid
-
-        if (userId == null) {
-            Toast.makeText(requireContext(), "Kullanıcı bilgisi alınamadı.", Toast.LENGTH_SHORT).show()
+        userId = args.kullaniciId
+        if (userId.isNullOrEmpty()) {
+            Toast.makeText(requireContext(), "Kullanıcı ID alınamadı", Toast.LENGTH_SHORT).show()
             return
         }
 
+        db = FirebaseFirestore.getInstance()
         sharedPrefs = requireContext().getSharedPreferences("checkbox_prefs", Context.MODE_PRIVATE)
 
         videoView = view.findViewById(R.id.videoView)
@@ -54,7 +60,6 @@ class BacakEgzersizFragment : Fragment() {
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
 
-        // videoMappings: buttonId, Pair(videoResId, durationMs), Triple(checkboxId, statusTextId, index)
         val videoMappings = listOf(
             Triple(R.id.btnVideo1, Pair(R.raw.bacak_egzersizi, 30_000), Triple(R.id.checkbox1, R.id.statusText1, 1)),
             Triple(R.id.btnVideo2, Pair(R.raw.bacak_egzersizi2, 30_000), Triple(R.id.checkbox2, R.id.statusText2, 2)),
@@ -75,15 +80,18 @@ class BacakEgzersizFragment : Fragment() {
             val checkbox = view.findViewById<CheckBox>(checkboxId)
             val statusText = view.findViewById<TextView>(statusTextId)
 
-            val key = "${userId}_bacak_done_$index"
-            val isDone = sharedPrefs.getBoolean(key, false)
+            val sharedPrefsKey = "${userId}_bacak_done_$index"
+            val firestoreKey = "bacak_egzersizi_$index"
 
-            // Checkbox ve text durumunu SharedPreferences'den yükle
-            checkbox.isChecked = isDone
-            statusText.text = if (isDone) "Yapıldı" else "Yapılmadı"
-            checkbox.isEnabled = isDone
+            db.collection("users").document(userId!!).collection("tamamlananEgzersizler")
+                .document(firestoreKey).get()
+                .addOnSuccessListener {
+                    val isDone = it.getBoolean("tamamlandi") ?: false
+                    checkbox.isChecked = isDone
+                    checkbox.isEnabled = isDone
+                    statusText.text = if (isDone) "Yapıldı" else "Yapılmadı"
+                }
 
-            // Eğer checkbox disabled ise (yani yapılmadıysa) kullanıcı manuel olarak işaretleyemesin
             checkbox.setOnClickListener {
                 if (!checkbox.isEnabled) checkbox.isChecked = false
             }
@@ -91,12 +99,13 @@ class BacakEgzersizFragment : Fragment() {
             button.setOnClickListener {
                 currentCheckbox = checkbox
                 currentStatusText = statusText
+                currentFirestoreKey = firestoreKey
 
                 checkbox.isChecked = false
                 checkbox.isEnabled = false
                 statusText.text = "İzleniyor..."
 
-                playVideoWithDuration(videoResId, durationMs, key)
+                playVideoWithDuration(videoResId, durationMs, sharedPrefsKey)
                 enterFullscreen()
             }
         }
@@ -106,7 +115,7 @@ class BacakEgzersizFragment : Fragment() {
         }
     }
 
-    private fun playVideoWithDuration(resId: Int, durationMs: Int, key: String) {
+    private fun playVideoWithDuration(resId: Int, durationMs: Int, sharedPrefsKey: String) {
         val uri = Uri.parse("android.resource://${requireContext().packageName}/$resId")
         videoView.setVideoURI(uri)
 
@@ -127,13 +136,28 @@ class BacakEgzersizFragment : Fragment() {
                 }
 
                 currentStatusText?.text = "Yapıldı"
-                sharedPrefs.edit().putBoolean(key, true).apply()
+                sharedPrefs.edit().putBoolean(sharedPrefsKey, true).apply()
+
+                currentFirestoreKey?.let { key -> saveToFirestore(key) }
 
                 exitFullscreen()
             }
         }
 
         handler.postDelayed(stopRunnable!!, durationMs.toLong())
+    }
+
+    private fun saveToFirestore(egzersizAdi: String) {
+        val data = mapOf(
+            "tamamlandi" to true,
+            "timestamp" to System.currentTimeMillis()
+        )
+
+        db.collection("users")
+            .document(userId!!)
+            .collection("tamamlananEgzersizler")
+            .document(egzersizAdi)
+            .set(data)
     }
 
     private fun cancelStopRunnable() {
